@@ -4,8 +4,8 @@ import time
 
 # Parameters
 num_dim = 2
-time_step = 0.05
-t = 5
+time_step = 0.01
+t = 1.3
 
 # Initial conditions
 initial = {"pos": np.random.uniform(-3, 3, num_dim),
@@ -38,8 +38,8 @@ for i, delta_time in enumerate(delta_times):
     vel = final_velocities[i]
 
     # Set axis limits dynamically
-    plt.xlim(-15, 15)
-    plt.ylim(-15, 15)
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
 
     # Plot velocity and acceleration vectors
     plt.quiver(pos[0], pos[1], acc[0], acc[1], color='red', scale=15)  # Acceleration

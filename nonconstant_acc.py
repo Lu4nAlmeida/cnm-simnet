@@ -86,7 +86,7 @@ elapsed_time = end_time - start_time
 print(f"Simulation computed in {elapsed_time:.9f} seconds.")
 
 model = KinematicsModel()
-model.load_state_dict(torch.load("C:\\Users\\LUAN\\PycharmProjects\\NeuralNetwork\\model_8.pth", map_location=torch.device('cpu')))
+model.load_state_dict(torch.load("/Kinematics Models/model_8.pth", map_location=torch.device('cpu')))
 model.to(device='cpu')
 input_data = input_data.to(device='cpu')
 model.eval()
