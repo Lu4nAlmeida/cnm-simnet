@@ -7,7 +7,7 @@ i = time.time()
 # Parameters
 num_dim = 2
 time_step = 0.05
-t = 5
+duration = 5
 simulations = 100
 
 input_data = []
@@ -20,7 +20,7 @@ for simulation in range(simulations):
     acc = np.random.uniform(-3, 3, num_dim)
 
     # Time steps as a NumPy array
-    delta_times = np.arange(0, t, time_step)
+    delta_times = np.arange(0, duration, time_step)
 
     # Compute displacement and velocity for all delta_times
     final_pos = initial["pos"] + initial["vel"] * delta_times[:, None] + 0.5 * acc * (delta_times[:, None] ** 2)

@@ -5,7 +5,7 @@ import time
 # Parameters
 num_dim = 2
 time_step = 0.01
-t = 1.3
+duration = 1.3
 
 # Initial conditions
 initial = {"pos": np.random.uniform(-3, 3, num_dim),
@@ -13,7 +13,7 @@ initial = {"pos": np.random.uniform(-3, 3, num_dim),
 acc = np.random.uniform(-3, 3, num_dim)
 
 # Time steps as a NumPy array
-delta_times = np.arange(0, t, time_step)
+delta_times = np.arange(0, duration, time_step)
 
 # Measure start time
 start_time = time.perf_counter()
@@ -32,8 +32,6 @@ print(f"Simulation computed in {elapsed_time:.9f} seconds.")
 loop_time = time.time()
 # Visualization
 for i, delta_time in enumerate(delta_times):
-    plt.clf()
-
     pos = displacements[i]
     vel = final_velocities[i]
 

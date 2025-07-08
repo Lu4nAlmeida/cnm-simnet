@@ -9,8 +9,8 @@ import time
 
 num_dim = 2
 time_step = 0.01
-t = 1.3
-shape = (int(t/time_step), num_dim)  # Shape for each input
+duration = 1.3
+shape = (int(duration / time_step), num_dim)  # Shape for each input
 
 def drag_force(mass, acc, drg, vel, t=0):
     return -(drg * final_velocity(mass, acc, drg, vel, t))
@@ -28,7 +28,7 @@ def delta_position(mass, acc, drg, vel, t):
 # x(t) = (m/k) * (v - (mg)/k) * (1 - e**(-(kt)/m)) + (mgt/k)
 
 # Time steps as a NumPy array
-delta_times = np.arange(0, t, time_step)
+delta_times = np.arange(0, duration, time_step)
 delta_times = np.broadcast_to(delta_times[:,None], shape)          # Shape: (130, 2)
 
 # Initial conditions

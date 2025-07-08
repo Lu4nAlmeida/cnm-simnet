@@ -4,7 +4,7 @@ import time
 
 num_dim = 2
 time_step = 0.05
-t = 5
+duration = 5
 
 # Initial conditions
 initial = {"pos": np.zeros(num_dim),
@@ -27,7 +27,7 @@ def final_velocity(vel, acc, time):
 
 loop_time = time.time()
 # Main loop
-for i in range(int(t / time_step)):
+for i in range(int(duration / time_step)):
     plt.clf()
     delta_time = i * time_step  # Elapsed time
 

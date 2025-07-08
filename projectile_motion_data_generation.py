@@ -9,8 +9,8 @@ i = time.time()
 # Parameters
 num_dim = 2
 time_step = 0.01
-t = 1.3
-shape = (int(t/time_step), num_dim)
+duration = 1.3
+shape = (int(duration / time_step), num_dim)
 simulations = 100
 
 input_data = []
@@ -30,7 +30,7 @@ def delta_position(mass, acc, drg, vel, t):
 
 
 # Time steps as a NumPy array
-delta_times = np.arange(0, t, time_step)
+delta_times = np.arange(0, duration, time_step)
 delta_times = np.broadcast_to(delta_times[:, None], shape)  # Shape: (130, 2)
 
 for simulation in range(simulations):
