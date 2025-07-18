@@ -9,7 +9,7 @@ i = time.time()
 # Parameters
 num_dim = 2
 time_step = 0.01
-duration = 1.3
+duration = 1.0
 shape = (int(duration / time_step), num_dim)
 simulations = 100
 
@@ -35,11 +35,10 @@ delta_times = np.broadcast_to(delta_times[:, None], shape)  # Shape: (130, 2)
 
 for simulation in range(simulations):
     # Initial conditions
-    initial = {"pos": np.broadcast_to(np.zeros(num_dim), shape),
-               "vel": np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape),
+    initial = {"vel": np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape),
                "mass": np.full(shape, random.uniform(0, 10)),
                "acc": np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape),
-               "drg": np.full(shape, random.uniform(0, 2))}
+               "drg": np.full(shape, random.uniform(0, 5))}
 
     # Final conditions
     final = {
@@ -71,10 +70,10 @@ output_data = np.array(output_data)
 
 f = time.time()
 
-with open(r"C:\Users\LUAN\PycharmProjects\NeuralNetwork\inputs.pkl", 'wb') as file:
+with open(r"data/inputs.pkl", 'wb') as file:
     pk.dump(input_data, file)
 
-with open(r"C:\Users\LUAN\PycharmProjects\NeuralNetwork\outputs.pkl", 'wb') as file:
+with open(r"data/outputs.pkl", 'wb') as file:
     pk.dump(output_data, file)
 
 print(f"It took {f-i:.3f} seconds to generate all data.")  # It took 0.019 seconds to generate all data.

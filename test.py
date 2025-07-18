@@ -1,12 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sympy
-import math
-import time
+import PMmodels_benchmark_tests as pm
 
-a = np.broadcast_to(np.zeros(2)[:, None], (2, 130))
+# Initial Parameters
 num_dim = 2
 time_step = 0.01
-t = 1.3
-shape = (num_dim, int(t/time_step))  # Shape for each input (num_dim, t/time_step)
-print(shape)
+duration = 1.0
+
+true_times = []
+pred_times = []
+accuracies = []
+
+for i in range(1000):
+    expected, predicted, *results = pm.simulation_comparison(num_dim, time_step, duration)
+    true_times.append(results[0])
+    pred_times.append(results[1])
+    accuracies.append(results[2])
+
+pm.print_results(np.mean(np.array(true_times)), np.mean(np.array(pred_times)), np.mean(np.array(accuracies)))

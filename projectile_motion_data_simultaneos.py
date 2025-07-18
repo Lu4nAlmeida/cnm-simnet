@@ -3,13 +3,14 @@ import numpy as np
 import math
 import time
 
+size = 5
 # https://youtu.be/Tr_TpLk3dY8?si=ctMPCvV_lPWFMLKZ Ben Yelverton
 # This simulation implements linear drag.
 # Linear drag is only accurate for objects with Reynolds Numbers < 10
 
 num_dim = 2
 time_step = 0.01
-duration = 1.3
+duration = 1.0
 shape = (int(duration / time_step), num_dim)  # Shape for each input
 
 def drag_force(mass, acc, drg, vel, t=0):
@@ -63,24 +64,22 @@ print(f"Simulation computed in {elapsed_time:.9f} seconds.")
 loop_time = time.time()
 # Visualization
 for i, delta_time in enumerate(delta_times):
-    plt.clf()
-
     pos = final["pos"][i]
     vel = final["vel"][i]
     frc = final["frc"][i]
 
     # Set axis limits dynamically
-    plt.xlim(-1, 9)
-    plt.ylim(-5, 5)
+    plt.xlim(-size, size)
+    plt.ylim(-size, size)
 
-    # Plot velocity and acceleration vectors
-    plt.quiver(pos[0], pos[1], frc[0], frc[1], color='orange', scale=15)  # Drag Force
-    plt.quiver(pos[0], pos[1], initial["acc"][0][0], initial["acc"][0][1], color='red', scale=15)  # Acceleration
-    plt.quiver(pos[0], pos[1], vel[0], vel[1], color='blue', scale=15)  # Velocity
+    if i == 0 or i == 99:
+        # Plot velocity and acceleration vectors
+        plt.quiver(pos[0], pos[1], frc[0]/2, frc[1]/2, color='orange', scale=15)  # Drag Force
+        plt.quiver(pos[0], pos[1], initial["acc"][0][0]/2, initial["acc"][0][1]/2, color='red', scale=15)  # Acceleration
+        plt.quiver(pos[0], pos[1], vel[0]/2, vel[1]/2, color='blue', scale=15)  # Velocity
 
     # Plot particle position
     plt.scatter(pos[0], pos[1], color="black")
-    plt.pause(time_step/1.6)
 
 loop_endtime = time.time()
 
