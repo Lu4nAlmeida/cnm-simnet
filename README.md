@@ -17,8 +17,8 @@ The goal: Evaluate whether machine learning (ML), specifically neural networks, 
 
 ## 📂 Project Structure
 
-- **data/**: Simulation datasets (kinematics, LDPM)
-- **notebooks/**: Training, analysis, and experiment notebooks (Colab/Jupyter)
+- **models/**: Saved models (kinematics, LDPM)
+- **notebooks/**: Training, analysis, and experiment notebooks (Colab)
 - **src/**: Core simulation and ML model code
 - **results/**: Accuracy curves, benchmarks, and generated figures
 - **paper/**: Drafts and materials for the research paper
@@ -54,13 +54,8 @@ See the `results/` folder for:
 
 ## 💡 Research Highlights
 
-- Models trained on infinite synthetic data for robust generalization
-- ML model performance compared to analytical CNM solutions
-- Metrics and benchmarking scripts included
+- (In Progress)
 
-## 📄 Paper Draft
-
-Find the latest draft and references in the `paper/` folder.
 
 ## 🤝 Contributing
 
