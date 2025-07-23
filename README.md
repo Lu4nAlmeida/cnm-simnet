@@ -4,6 +4,10 @@
 **Affiliation:** Concordia International School Hanoi / Polygence  
 **Contact:** luan.tobias@concordiahanoi.org
 
+🚧 **Currently in active development!**  
+
+![status](https://img.shields.io/badge/status-in_development-orange)
+
 ## 🧠 Overview
 
 This repository contains code, data, and results for the research paper:
