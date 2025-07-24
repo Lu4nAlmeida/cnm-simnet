@@ -8,7 +8,8 @@ def get_global_scalers(num_dim, shape, time_steps, sample_size=2000):
 
     for _ in range(sample_size):
         # Same logic as in generate_data()
-        ldpm = ProjectileMotionSimulation.random_initial_parameters(num_dim, shape)
+        ldpm = ProjectileMotionSimulation()
+        ldpm.random_initial_parameters(num_dim, shape)
         ldpm.compute_output(time_steps)
 
         inputs = np.concatenate([

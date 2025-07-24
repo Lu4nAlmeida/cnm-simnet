@@ -1,7 +1,7 @@
 import numpy as np
 
 class KinematicsSimulation:
-    def __init__(self, pos, vel, acc):
+    def __init__(self, pos=0, vel=0, acc=0):
         self.pos = np.array(pos)
         self.vel = np.array(vel)
         self.acc = np.array(acc)
@@ -11,6 +11,6 @@ class KinematicsSimulation:
         self.vel = self.vel + self.acc * time_steps
 
     def random_initial_parameters(self, num_dim, shape):
-        self.pos = np.broadcast_to(np.zeros(num_dim), shape),
-        self.vel = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape),
-        self.acc = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape),
+        self.pos = np.broadcast_to(np.zeros(num_dim), shape)
+        self.vel = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape)
+        self.acc = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape)

@@ -11,7 +11,8 @@ def generate_ldpm_data(X_scaler, y_scaler, num_simulations, num_dim, shape, time
     runtimes = []
 
     for _ in range(num_simulations):
-        ldpm = ProjectileMotionSimulation.random_initial_parameters(num_dim, shape)
+        ldpm = ProjectileMotionSimulation()
+        ldpm.random_initial_parameters(num_dim, shape)
 
         start_time = time.perf_counter()
         ldpm.compute_output(time_steps)
@@ -64,7 +65,8 @@ def generate_kinematics_data(num_simulations, num_dim, shape, time_steps):
     runtimes = []
 
     for _ in range(num_simulations):
-        initial = KinematicsSimulation.random_initial_parameters(num_dim, shape)
+        initial = KinematicsSimulation()
+        initial.random_initial_parameters(num_dim, shape)
         final = copy.deepcopy(initial)
 
         start_time = time.perf_counter()
