@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-class ProjectileMotionModel(nn.Module):
+class KinematicsModel(nn.Module):
     def __init__(self, in_dim=5, out_dim=4, hidden_units=256, activation=nn.ReLU()):
         super().__init__()
         self.net = torch.nn.Sequential(
