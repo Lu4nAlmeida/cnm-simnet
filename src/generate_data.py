@@ -93,13 +93,13 @@ def generate_kinematics_data(num_simulations, num_dim, shape, time_steps):
     sim_time = np.mean(runtimes)
     total_time = np.sum(runtimes)
 
-    X = np.array(input_data).reshape(-1, num_dim * 2 + 1)
-    y = np.array(output_data).reshape(-1, num_dim * 2)
-
-    # Shuffle models
+    # Shuffle data
     perm = np.random.permutation(X.shape[0])
-    X_shuffled = X[perm]
-    y_shuffled = y[perm]
+    X_shuffled = np.array(input_data)[perm]
+    y_shuffled = np.array(output_data)[perm]
+
+    X_shuffled = X_shuffled.reshape(-1, num_dim * 2 + 1)
+    y_shuffled = y_shuffled.reshape(-1, num_dim * 2)
 
     # Train/test split
     split = int(0.8 * len(X_shuffled))
