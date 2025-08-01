@@ -1,6 +1,7 @@
 from simulate_ldpm import ProjectileMotionSimulation
 from sklearn.preprocessing import StandardScaler
 import numpy as np
+import math
 
 def get_global_scalers(num_dim, shape, time_steps, sample_size=2000):
     input_data = []
