@@ -33,3 +33,14 @@ def get_global_scalers(num_dim, shape, time_steps, sample_size=2000):
     X_scaler = StandardScaler().fit(X)
     y_scaler = StandardScaler().fit(y)
     return X_scaler, y_scaler
+
+def accuracy(expected, inferred, mode="rmse"):
+    if mode == "rmse":
+        error = math.sqrt(np.mean((expected - inferred) ** 2))
+    elif mode == "mse":
+        error = np.mean((expected - inferred) ** 2)
+    elif mode == "mae":
+        error = np.mean(np.abs(expected - inferred))
+
+    accuracy = 1 / (error + 1)
+    return accuracy * 100
