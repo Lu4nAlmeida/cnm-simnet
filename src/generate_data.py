@@ -94,7 +94,7 @@ def generate_kinematics_data(num_simulations, num_dim, shape, time_steps):
     total_time = np.sum(runtimes)
 
     # Shuffle data
-    perm = np.random.permutation(X.shape[0])
+    perm = np.random.permutation(len(input_data))
     X_shuffled = np.array(input_data)[perm]
     y_shuffled = np.array(output_data)[perm]
 
