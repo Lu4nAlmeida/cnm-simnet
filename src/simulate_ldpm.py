@@ -19,9 +19,9 @@ class ProjectileMotionSimulation:
     def random_initial_parameters(self, num_dim, shape):
         self.pos = np.broadcast_to(np.zeros(num_dim), shape)
         self.vel = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape)
-        self.mass = np.full(shape, random.uniform(0, 10))
+        self.mass = np.full(shape, random.uniform(0, 2))
         self.acc = np.broadcast_to(np.random.uniform(-10, 10, num_dim), shape)
-        self.drg = np.full(shape, random.uniform(0, 5))
+        self.drg = np.full(shape, random.uniform(0, 2))
         self.frc = -self.drg * self.vel
 
     @staticmethod
